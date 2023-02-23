@@ -1,0 +1,47 @@
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    background-color: rgb(64, 117, 233);
+    padding: 0.25em 0.5em;
+    border: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+
+.btn:hover {
+    background-color: rgb(42, 102, 230);
+    transform: scale(0.95);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: #fafafa;
+}
+
+main {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+form > * {
+    padding: 0.5rem;
+}

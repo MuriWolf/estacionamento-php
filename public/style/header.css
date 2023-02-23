@@ -1,0 +1,19 @@
+header {
+    background-color: rgb(64, 123, 233);
+    padding: 20px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.header-wraper {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}   
+
+header * {
+    color: white;
+}
+

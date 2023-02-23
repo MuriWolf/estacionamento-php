@@ -1,0 +1,9 @@
+Crie um sistema que possa cadastrar carros em um estacionamento, o sistema deverá cadastrar o veículo, tendo as informações de Placa do automóvel (chave), marca, modelo, horario de entrada e quando o veículo sair, calcular o valor a ser pago. 
+
+O sistema deverá ser capaz de cadastrar tais informações no banco e recuperá-las quando necessário, bem como, editar e alterar as informações.
+
+Essa atividade servirá como revisão do conteúdo para que possamos continuar a partir daqui.
+
+Bom trabalho a todos.
+
+Prof. Arnaldo.
