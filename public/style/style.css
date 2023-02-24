@@ -10,6 +10,11 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none;
+    background-color: transparent;
+}
+
 .btn {
     display: inline-block;
     color: white;

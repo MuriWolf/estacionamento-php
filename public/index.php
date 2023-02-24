@@ -1,5 +1,22 @@
 <?php
 include("../src/modules/returnCarData.php");
+
+function showExit($linha, $linkMarkExit) {
+    if ($linha['valorPagar'] == null && $linha['horarioSaida'] == null) {
+        echo ("<td><a href='$linkMarkExit'>Marcar saída</a></td>");
+    } else {
+        echo("<td> </td>");
+    }
+}
+
+function showDelete($linha, $deleteCar) {
+    if ($linha['valorPagar'] != null && $linha['horarioSaida'] !== null) {
+        echo ("<td><a href='$deleteCar'>Excluir</a></td>");
+    } else {
+        echo("<td> </td>");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +29,8 @@ include("../src/modules/returnCarData.php");
     <title>Home</title>
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/header.css">
-    <link rel="stylesheet" href="./style/table.css">
+    <link rel="stylesheet" href="./style/table.css"> 
+    <link rel="stylesheet" href="./style/modal.css"> 
 </head>
 
 <body>
@@ -29,11 +47,13 @@ include("../src/modules/returnCarData.php");
                 <th>valor a pagar</th>
                 <th>Editar</th>
                 <th>Marcar saída</th>
+                <th>Apagar</th>
             </tr>
             <?php
             while ($linha = $consulta->fetch(PDO::FETCH_ASSOC)) {
                 $linkCarDetails = "http://localhost/estacionamento-php/public/pages/CarDetailsPage.php?placa={$linha['placa']}";
-                $linkMarkExitt = "http://localhost/estacionamento-php/public/pages/exitPage.php?placa={$linha['placa']}";
+                $linkMarkExit = "http://localhost/estacionamento-php/public/pages/exitPage.php?placa={$linha['placa']}";
+                $deleteCar = "http://localhost/estacionamento-php/public/pages/deleteCarPage.php?placa={$linha['placa']}";
                 $valorPagar = number_format($linha['valorPagar'], 2, ',');
 
                 echo ("<tr>");
@@ -44,11 +64,11 @@ include("../src/modules/returnCarData.php");
                     echo ("<td>{$linha['horarioSaida']}</td>");
                     echo ("<td>R$ $valorPagar</td>");
                     echo ("<td class='td-center' text-align='center'><a href='$linkCarDetails'>Editar</a> </td>");
-                    if ($linha['valorPagar'] == null && $linha['horarioSaida'] == null) {
-                        echo ("<td><a href='$linkMarkExitt'>Marcar saída</a></td>");
-                    };
+                    showExit($linha, $linkMarkExit);
+                    showDelete($linha, $deleteCar);
                 echo ("</tr>");
             }
+            include("../src/templates/exitModal.php");
             ?>
         </table>
 
